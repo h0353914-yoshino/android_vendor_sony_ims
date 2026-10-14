@@ -10,7 +10,7 @@ java_library {
 }
 
 android_app {
-    name: "ImsFromSource",
+    name: "ims",
     owner: "sony",
     srcs: ["src/**/*.java"],
     manifest: "AndroidManifest.xml",

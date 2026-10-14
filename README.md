@@ -13,7 +13,7 @@ Sony Xperia (yoshino：poplar / poplardcm) 使用的 Qualcomm IMS App（`org.cod
 
 | 路徑 | 說明 |
 |---|---|
-| `Android.bp` | `ImsFromSource`（`android_app`，平台簽章、`system_ext`、`privileged`）與編譯期專用的 `ims-ext-common-fp3-compat` |
+| `Android.bp` | `ims`（`android_app`，平台簽章、`system_ext`、`privileged`）與編譯期專用的 `ims-ext-common-fp3-compat` |
 | `AndroidManifest.xml`、`res/` | 取自原 APK（apktool/JADX 解碼），資源 ID 與原版相同 |
 | `src/` | JADX 輸出（273 檔 → 去除 `android/hidl/base` 後 271 檔），已依 smali 修正還原錯誤 |
 | `compat/` | 對 FP3 版 `ims-ext-common` 的編譯期相容層：無參數建構子、`QtiCallConstants.EXTRA_CALL_COMPOSER_TOKEN/_CALL_ENDED`、`queryVirtualLineInfo`。`installable: false`，不會進入映像 |
@@ -32,14 +32,14 @@ Sony Xperia (yoshino：poplar / poplardcm) 使用的 Qualcomm IMS App（`org.cod
 ```bash
 cd ~/lineageos
 export CCACHE_EXEC=/usr/bin/ccache USE_CCACHE=1
-source build/envsetup.sh && lunch lineage_poplar-bp1a-userdebug && mka ImsFromSource
+source build/envsetup.sh && lunch lineage_poplar-bp1a-userdebug && mka ims
 ```
 
-輸出：`out/target/product/poplar/system/system_ext/priv-app/ImsFromSource/ImsFromSource.apk`。
+輸出：`out/target/product/poplar/system/system_ext/priv-app/ims/ims.apk`。
 
 注意事項：
 - `uses_libs` 順序必須是 `qti-telephony-hidl-wrapper, qti-telephony-utils, ims-ext-common`，否則 manifest_check 失敗。
-- 目前**尚未**接進產品：`yoshino-common` 的 `PRODUCT_PACKAGES` 仍安裝原版 `ims`（`android_app_import`）。要取代它時，先處理模組名稱衝突（`stem: "ims"` 會與舊模組在 Make 層撞名），並保留 `/system_ext/priv-app/ims/lib/arm64/` 的 JNI 符號連結位置。
+- 模組名稱為 `ims`，與原版同名同路徑（`/system_ext/priv-app/ims/ims.apk`），所以 `yoshino-common` 的 `PRODUCT_PACKAGES += ims` 與 `priv-app/ims/lib/arm64/` 的 JNI 符號連結都不用改。代價是原本 `vendor/sony/yoshino-common` 的 `android_app_import ims` 必須移除（`proprietary-files.txt` 該行改成 `-` 前綴：只保留 blob、不產生編譯規則）。
 - 裝置上試驗新 APK 前先備份原檔，並暫時 `setprop persist.sys.disable_rescue true`；APK 若讓持久性程序當機，RescueParty 會自動重開機。
 
 ## 重點：JADX 的還原錯誤
