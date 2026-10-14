@@ -1,0 +1,35 @@
+// 僅編譯期使用：原 APK 是對 FP3 版 ims-ext-common 編譯，樹內為新版 CAF，
+// 這裡覆蓋少數 API 不同的類別（無參數建構子、EXTRA_CALL_COMPOSER_* 欄位、queryVirtualLineInfo）
+java_library {
+    name: "ims-ext-common-fp3-compat",
+    srcs: ["compat/src/**/*.java"],
+    libs: ["ims-ext-common"],
+    sdk_version: "system_current",
+    installable: false,
+    system_ext_specific: true,
+}
+
+android_app {
+    name: "ImsFromSource",
+    owner: "sony",
+    srcs: ["src/**/*.java"],
+    manifest: "AndroidManifest.xml",
+    resource_dirs: ["res"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+    dex_preopt: { enabled: false },
+    optimize: { enabled: false },
+    uses_libs: [
+        "qti-telephony-hidl-wrapper",
+        "qti-telephony-utils",
+        "ims-ext-common",
+    ],
+    libs: [
+        "ims-ext-common-fp3-compat",
+        "qti-telephony-hidl-wrapper",
+        "qti-telephony-utils",
+        "ims-ext-common",
+    ],
+}

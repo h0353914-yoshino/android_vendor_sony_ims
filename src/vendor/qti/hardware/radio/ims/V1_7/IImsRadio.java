@@ -1,0 +1,1867 @@
+package vendor.qti.hardware.radio.ims.V1_7;
+
+import android.hidl.base.V1_0.DebugInfo;
+import android.hidl.base.V1_0.IBase;
+import android.os.HidlSupport;
+import android.os.HwBinder;
+import android.os.HwBlob;
+import android.os.HwParcel;
+import android.os.IHwBinder;
+import android.os.IHwInterface;
+import android.os.NativeHandle;
+import android.os.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import vendor.qti.hardware.radio.ims.V1_0.AddressInfo;
+import vendor.qti.hardware.radio.ims.V1_0.CallForwardInfo;
+import vendor.qti.hardware.radio.ims.V1_0.CallModifyInfo;
+import vendor.qti.hardware.radio.ims.V1_0.CbNumListInfo;
+import vendor.qti.hardware.radio.ims.V1_0.ClirInfo;
+import vendor.qti.hardware.radio.ims.V1_0.ColrInfo;
+import vendor.qti.hardware.radio.ims.V1_0.ConfigInfo;
+import vendor.qti.hardware.radio.ims.V1_0.DeflectRequestInfo;
+import vendor.qti.hardware.radio.ims.V1_0.DialRequest;
+import vendor.qti.hardware.radio.ims.V1_0.DtmfInfo;
+import vendor.qti.hardware.radio.ims.V1_0.ExplicitCallTransferInfo;
+import vendor.qti.hardware.radio.ims.V1_0.HangupRequestInfo;
+import vendor.qti.hardware.radio.ims.V1_0.ServiceStatusInfo;
+import vendor.qti.hardware.radio.ims.V1_0.TtyInfo;
+import vendor.qti.hardware.radio.ims.V1_2.ImsSmsMessage;
+import vendor.qti.hardware.radio.ims.V1_4.MultiIdentityLineInfoHal;
+import vendor.qti.hardware.radio.ims.V1_6.CallComposerInfo;
+
+/* JADX INFO: loaded from: classes.dex */
+public interface IImsRadio extends vendor.qti.hardware.radio.ims.V1_6.IImsRadio {
+    public static final String kInterfaceName = "vendor.qti.hardware.radio.ims@1.7::IImsRadio";
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    IHwBinder asBinder();
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    void debug(NativeHandle nativeHandle, ArrayList<String> arrayList) throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    DebugInfo getDebugInfo() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    ArrayList<byte[]> getHashChain() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    ArrayList<String> interfaceChain() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    String interfaceDescriptor() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    boolean linkToDeath(IHwBinder.DeathRecipient deathRecipient, long j) throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    void notifySyspropsChanged() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    void ping() throws RemoteException;
+
+    void sendSipDtmf(int i, String str) throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    void setHALInstrumentation() throws RemoteException;
+
+    @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+    boolean unlinkToDeath(IHwBinder.DeathRecipient deathRecipient) throws RemoteException;
+
+    static IImsRadio asInterface(IHwBinder binder) {
+        if (binder == null) {
+            return null;
+        }
+        IHwInterface iface = binder.queryLocalInterface(kInterfaceName);
+        if (iface != null && (iface instanceof IImsRadio)) {
+            return (IImsRadio) iface;
+        }
+        IImsRadio proxy = new Proxy(binder);
+        try {
+            for (String descriptor : proxy.interfaceChain()) {
+                if (descriptor.equals(kInterfaceName)) {
+                    return proxy;
+                }
+            }
+        } catch (RemoteException e) {
+        }
+        return null;
+    }
+
+    static IImsRadio castFrom(IHwInterface iface) {
+        if (iface == null) {
+            return null;
+        }
+        return asInterface(iface.asBinder());
+    }
+
+    static IImsRadio getService(String serviceName, boolean retry) throws RemoteException {
+        return asInterface(HwBinder.getService(kInterfaceName, serviceName, retry));
+    }
+
+    static IImsRadio getService(boolean retry) throws RemoteException {
+        return getService("default", retry);
+    }
+
+    @Deprecated
+    static IImsRadio getService(String serviceName) throws RemoteException {
+        return asInterface(HwBinder.getService(kInterfaceName, serviceName));
+    }
+
+    @Deprecated
+    static IImsRadio getService() throws RemoteException {
+        return getService("default");
+    }
+
+    public static final class Proxy implements IImsRadio {
+        private IHwBinder mRemote;
+
+        public Proxy(IHwBinder remote) {
+            this.mRemote = (IHwBinder) Objects.requireNonNull(remote);
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public IHwBinder asBinder() {
+            return this.mRemote;
+        }
+
+        public String toString() {
+            try {
+                return interfaceDescriptor() + "@Proxy";
+            } catch (RemoteException e) {
+                return "[class or subclass of vendor.qti.hardware.radio.ims@1.7::IImsRadio]@Proxy";
+            }
+        }
+
+        public final boolean equals(Object other) {
+            return HidlSupport.interfacesEqual(this, other);
+        }
+
+        public final int hashCode() {
+            return asBinder().hashCode();
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setCallback(vendor.qti.hardware.radio.ims.V1_0.IImsRadioResponse imsRadioResponse, vendor.qti.hardware.radio.ims.V1_0.IImsRadioIndication imsRadioIndication) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeStrongBinder(imsRadioResponse == null ? null : imsRadioResponse.asBinder());
+            _hidl_request.writeStrongBinder(imsRadioIndication != null ? imsRadioIndication.asBinder() : null);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(1, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void dial(int token, DialRequest dialRequest) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(2, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void addParticipant(int token, DialRequest dialRequest) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(3, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getImsRegistrationState(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(4, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void answer(int token, int callType, int presentation, int mode) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(callType);
+            _hidl_request.writeInt32(presentation);
+            _hidl_request.writeInt32(mode);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(5, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void hangup(int token, HangupRequestInfo hangup) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            hangup.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(6, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void requestRegistrationChange(int token, int state) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(state);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(7, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void queryServiceStatus(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(8, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setServiceStatus(int token, ServiceStatusInfo srvStatusInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            srvStatusInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(9, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void hold(int token, int callId) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(callId);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(10, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void resume(int token, int callId) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(callId);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(11, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setConfig(int token, ConfigInfo config) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            config.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(12, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getConfig(int token, ConfigInfo config) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            config.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(13, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void conference(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(14, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getClip(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(15, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getClir(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(16, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setClir(int token, ClirInfo clirInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            clirInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(17, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getColr(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(18, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setColr(int token, ColrInfo colrInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            colrInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(19, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void exitEmergencyCallbackMode(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(20, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void sendDtmf(int token, DtmfInfo dtmfInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dtmfInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(21, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void startDtmf(int token, DtmfInfo dtmfInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dtmfInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(22, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void stopDtmf(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(23, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setUiTtyMode(int token, TtyInfo ttyInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            ttyInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(24, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void modifyCallInitiate(int token, CallModifyInfo callModifyInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            callModifyInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(25, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void modifyCallConfirm(int token, CallModifyInfo callModifyInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            callModifyInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(26, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void queryCallForwardStatus(int token, CallForwardInfo callForwardInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            callForwardInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(27, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setCallForwardStatus(int token, CallForwardInfo callForwardInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            callForwardInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(28, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getCallWaiting(int token, int serviceClass) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(serviceClass);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(29, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setCallWaiting(int token, int serviceStatus, int serviceClass) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(serviceStatus);
+            _hidl_request.writeInt32(serviceClass);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(30, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void setSuppServiceNotification(int token, int status) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(status);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(31, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void explicitCallTransfer(int token, ExplicitCallTransferInfo ectInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            ectInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(32, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void suppServiceStatus(int token, int operationType, int facilityType, CbNumListInfo cbNumListInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(operationType);
+            _hidl_request.writeInt32(facilityType);
+            cbNumListInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(33, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getRtpStatistics(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(34, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getRtpErrorStatistics(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(35, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void deflectCall(int token, DeflectRequestInfo deflectRequestInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            deflectRequestInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(36, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void sendGeolocationInfo(int token, double lat, double lon, AddressInfo addressInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeDouble(lat);
+            _hidl_request.writeDouble(lon);
+            addressInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(37, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void getImsSubConfig(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(38, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void sendRttMessage(int token, String message) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeString(message);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(39, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_0.IImsRadio
+        public void cancelModifyCall(int token, int callId) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(callId);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(40, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_1.IImsRadio
+        public void hangup_1_1(int token, vendor.qti.hardware.radio.ims.V1_1.HangupRequestInfo hangup) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_1.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            hangup.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(41, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public void hangup_1_2(int token, vendor.qti.hardware.radio.ims.V1_2.HangupRequestInfo hangup) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            hangup.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(42, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public void sendImsSms(int token, ImsSmsMessage imsSms) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            imsSms.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(43, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public void acknowledgeSms(int token, int messageRef, int smsResult) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(messageRef);
+            _hidl_request.writeInt32(smsResult);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(44, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public void acknowledgeSmsReport(int token, int messageRef, int smsReport) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(messageRef);
+            _hidl_request.writeInt32(smsReport);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(45, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public String getSmsFormat() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(46, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+                String _hidl_out_format = _hidl_reply.readString();
+                return _hidl_out_format;
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_2.IImsRadio
+        public void sendGeolocationInfo_1_2(int token, double lat, double lon, vendor.qti.hardware.radio.ims.V1_2.AddressInfo addressInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeDouble(lat);
+            _hidl_request.writeDouble(lon);
+            addressInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(47, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_3.IImsRadio
+        public void hangup_1_3(int token, vendor.qti.hardware.radio.ims.V1_3.HangupRequestInfo hangup) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_3.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            hangup.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(48, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_3.IImsRadio
+        public void setColr_1_3(int token, vendor.qti.hardware.radio.ims.V1_3.ColrInfo colrInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_3.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            colrInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(49, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_4.IImsRadio
+        public void registerMultiIdentityLines(int token, ArrayList<MultiIdentityLineInfoHal> info) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            MultiIdentityLineInfoHal.writeVectorToParcel(_hidl_request, info);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(50, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_4.IImsRadio
+        public void queryVirtualLineInfo(int token, String msisdn) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeString(msisdn);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(51, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_4.IImsRadio
+        public void dial_1_4(int token, vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(52, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_4.IImsRadio
+        public void addParticipant_1_4(int token, vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(53, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_5.IImsRadio
+        public void setConfig_1_5(int token, vendor.qti.hardware.radio.ims.V1_5.ConfigInfo config) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            config.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(54, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_5.IImsRadio
+        public void emergencyDial(int token, vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest, int categories, ArrayList<String> urns, int route, boolean hasKnownUserIntentEmergency, boolean isTesting) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            _hidl_request.writeInt32(categories);
+            _hidl_request.writeStringVector(urns);
+            _hidl_request.writeInt32(route);
+            _hidl_request.writeBool(hasKnownUserIntentEmergency);
+            _hidl_request.writeBool(isTesting);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(55, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_5.IImsRadio
+        public void acknowledgeSms_1_5(int token, int messageRef, int smsResult) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(messageRef);
+            _hidl_request.writeInt32(smsResult);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(56, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void setConfig_1_6(int token, vendor.qti.hardware.radio.ims.V1_6.ConfigInfo config) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            config.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(57, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void dial_1_6(int token, vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(58, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void emergencyDial_1_6(int token, vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest, int categories, ArrayList<String> urns, int route, boolean hasKnownUserIntentEmergency, boolean isTesting) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            _hidl_request.writeInt32(categories);
+            _hidl_request.writeStringVector(urns);
+            _hidl_request.writeInt32(route);
+            _hidl_request.writeBool(hasKnownUserIntentEmergency);
+            _hidl_request.writeBool(isTesting);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(59, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void setServiceStatus_1_6(int token, ArrayList<vendor.qti.hardware.radio.ims.V1_6.ServiceStatusInfo> srvStatusInfoList) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            vendor.qti.hardware.radio.ims.V1_6.ServiceStatusInfo.writeVectorToParcel(_hidl_request, srvStatusInfoList);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(60, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void suppServiceStatus_1_6(int token, int operationType, int facilityType, CbNumListInfo cbNumListInfo, String password) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeInt32(operationType);
+            _hidl_request.writeInt32(facilityType);
+            cbNumListInfo.writeToParcel(_hidl_request);
+            _hidl_request.writeString(password);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(61, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void sendUssd(int token, String ussd) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeString(ussd);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(62, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void cancelPendingUssd(int token) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(63, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_6.IImsRadio
+        public void callComposerDial(int token, vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest, CallComposerInfo callComposerInfo) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            dialRequest.writeToParcel(_hidl_request);
+            callComposerInfo.writeToParcel(_hidl_request);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(64, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio
+        public void sendSipDtmf(int token, String requestCode) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IImsRadio.kInterfaceName);
+            _hidl_request.writeInt32(token);
+            _hidl_request.writeString(requestCode);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(65, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public ArrayList<String> interfaceChain() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256067662, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+                ArrayList<String> _hidl_out_descriptors = _hidl_reply.readStringVector();
+                return _hidl_out_descriptors;
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public void debug(NativeHandle fd, ArrayList<String> options) throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            _hidl_request.writeNativeHandle(fd);
+            _hidl_request.writeStringVector(options);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256131655, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public String interfaceDescriptor() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256136003, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+                String _hidl_out_descriptor = _hidl_reply.readString();
+                return _hidl_out_descriptor;
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public ArrayList<byte[]> getHashChain() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256398152, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+                ArrayList<byte[]> _hidl_out_hashchain = new ArrayList<>();
+                HwBlob _hidl_blob = _hidl_reply.readBuffer(16L);
+                int _hidl_vec_size = _hidl_blob.getInt32(8L);
+                HwBlob childBlob = _hidl_reply.readEmbeddedBuffer(_hidl_vec_size * 32, _hidl_blob.handle(), 0L, true);
+                _hidl_out_hashchain.clear();
+                for (int _hidl_index_0 = 0; _hidl_index_0 < _hidl_vec_size; _hidl_index_0++) {
+                    byte[] _hidl_vec_element = new byte[32];
+                    long _hidl_array_offset_1 = _hidl_index_0 * 32;
+                    childBlob.copyToInt8Array(_hidl_array_offset_1, _hidl_vec_element, 32);
+                    _hidl_out_hashchain.add(_hidl_vec_element);
+                }
+                _hidl_reply.release();
+                return _hidl_out_hashchain;
+            } catch (Throwable th) {
+                _hidl_reply.release();
+                throw th;
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public void setHALInstrumentation() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256462420, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public boolean linkToDeath(IHwBinder.DeathRecipient recipient, long cookie) throws RemoteException {
+            return this.mRemote.linkToDeath(recipient, cookie);
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public void ping() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(256921159, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public DebugInfo getDebugInfo() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(257049926, _hidl_request, _hidl_reply, 0);
+                _hidl_reply.verifySuccess();
+                _hidl_request.releaseTemporaryStorage();
+                DebugInfo _hidl_out_info = new DebugInfo();
+                _hidl_out_info.readFromParcel(_hidl_reply);
+                return _hidl_out_info;
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public void notifySyspropsChanged() throws RemoteException {
+            HwParcel _hidl_request = new HwParcel();
+            _hidl_request.writeInterfaceToken(IBase.kInterfaceName);
+            HwParcel _hidl_reply = new HwParcel();
+            try {
+                this.mRemote.transact(257120595, _hidl_request, _hidl_reply, 1);
+                _hidl_request.releaseTemporaryStorage();
+            } finally {
+                _hidl_reply.release();
+            }
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public boolean unlinkToDeath(IHwBinder.DeathRecipient recipient) throws RemoteException {
+            return this.mRemote.unlinkToDeath(recipient);
+        }
+    }
+
+    public static abstract class Stub extends HwBinder implements IImsRadio {
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public IHwBinder asBinder() {
+            return this;
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final ArrayList<String> interfaceChain() {
+            return new ArrayList<>(Arrays.asList(IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_3.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_1.IImsRadio.kInterfaceName, vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName, IBase.kInterfaceName));
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public void debug(NativeHandle fd, ArrayList<String> options) {
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final String interfaceDescriptor() {
+            return IImsRadio.kInterfaceName;
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final ArrayList<byte[]> getHashChain() {
+            return new ArrayList<>(Arrays.asList(new byte[]{67, 41, -73, -48, -124, 86, 69, -126, -41, 17, 57, 36, -53, 120, -105, -101, 62, 7, 98, 1, -34, -128, -38, 69, 119, -8, 12, 27, 2, -15, 43, 6}, new byte[]{12, 82, -12, 46, -98, -67, -118, 47, 30, 76, -58, -126, -104, 125, 19, -56, 42, -124, 89, -12, -1, 79, -63, 7, 111, 25, -71, -2, -20, 121, 127, -2}, new byte[]{-121, -37, 27, 59, -34, 87, -121, -111, -34, 97, 58, 53, -127, -96, 31, 93, -104, -92, 69, 60, -6, -45, 116, 84, 22, 118, -58, 83, 17, 38, -7, -22}, new byte[]{-71, -80, 46, -34, 9, -84, 60, -103, -111, -7, 66, 34, -73, -97, -11, -3, -116, -79, -86, -124, 98, 77, -8, -5, -87, 97, 51, -90, 59, -26, -96, 14}, new byte[]{4, -15, -3, -37, -88, -54, -23, -94, 92, -103, 79, -6, -37, -111, -34, -32, -88, 29, 59, 37, 73, 23, 117, 78, 60, 20, 5, -42, 111, -60, -13, 76}, new byte[]{-108, 68, -53, 90, -37, -94, 31, -32, -56, -83, -20, 38, -115, -105, -93, 78, -33, -30, -2, -98, 1, -119, -67, 63, 91, 95, -112, 64, -125, 10, -33, -69}, new byte[]{47, 73, -87, 49, 19, 30, -19, 83, 38, 95, -27, -102, 104, 97, -62, -67, 71, 107, -17, 80, 64, 52, 73, -11, 86, -81, 8, -125, 87, 61, 127, -15}, new byte[]{78, 65, -10, 94, -61, -30, 94, 37, 91, 37, -38, 93, 123, 60, -79, 23, -22, 75, -25, -35, 96, 116, 95, 109, -37, -105, -89, 71, 90, 86, 126, 112}, new byte[]{-20, 127, -41, -98, -48, 45, -6, -123, -68, 73, -108, 38, -83, -82, 62, -66, 35, -17, 5, 36, -13, -51, 105, 87, 19, -109, 36, -72, 59, 24, -54, 76}));
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final void setHALInstrumentation() {
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final boolean linkToDeath(IHwBinder.DeathRecipient recipient, long cookie) {
+            return true;
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final void ping() {
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final DebugInfo getDebugInfo() {
+            DebugInfo info = new DebugInfo();
+            info.pid = HidlSupport.getPidIfSharable();
+            info.ptr = 0L;
+            info.arch = 0;
+            return info;
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final void notifySyspropsChanged() {
+            HwBinder.enableInstrumentation();
+        }
+
+        @Override // vendor.qti.hardware.radio.ims.V1_7.IImsRadio, vendor.qti.hardware.radio.ims.V1_6.IImsRadio, vendor.qti.hardware.radio.ims.V1_5.IImsRadio, vendor.qti.hardware.radio.ims.V1_4.IImsRadio, vendor.qti.hardware.radio.ims.V1_3.IImsRadio, vendor.qti.hardware.radio.ims.V1_2.IImsRadio, vendor.qti.hardware.radio.ims.V1_1.IImsRadio, vendor.qti.hardware.radio.ims.V1_0.IImsRadio, android.hidl.base.V1_0.IBase
+        public final boolean unlinkToDeath(IHwBinder.DeathRecipient recipient) {
+            return true;
+        }
+
+        public IHwInterface queryLocalInterface(String descriptor) {
+            if (IImsRadio.kInterfaceName.equals(descriptor)) {
+                return this;
+            }
+            return null;
+        }
+
+        public void registerAsService(String serviceName) throws RemoteException {
+            registerService(serviceName);
+        }
+
+        public String toString() {
+            return interfaceDescriptor() + "@Stub";
+        }
+
+        public void onTransact(int _hidl_code, HwParcel _hidl_request, HwParcel _hidl_reply, int _hidl_flags) throws RemoteException {
+            switch (_hidl_code) {
+                case 1:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    vendor.qti.hardware.radio.ims.V1_0.IImsRadioResponse imsRadioResponse = vendor.qti.hardware.radio.ims.V1_0.IImsRadioResponse.asInterface(_hidl_request.readStrongBinder());
+                    vendor.qti.hardware.radio.ims.V1_0.IImsRadioIndication imsRadioIndication = vendor.qti.hardware.radio.ims.V1_0.IImsRadioIndication.asInterface(_hidl_request.readStrongBinder());
+                    setCallback(imsRadioResponse, imsRadioIndication);
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.send();
+                    return;
+                case 2:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token = _hidl_request.readInt32();
+                    DialRequest dialRequest = new DialRequest();
+                    dialRequest.readFromParcel(_hidl_request);
+                    dial(token, dialRequest);
+                    return;
+                case 3:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token2 = _hidl_request.readInt32();
+                    DialRequest dialRequest2 = new DialRequest();
+                    dialRequest2.readFromParcel(_hidl_request);
+                    addParticipant(token2, dialRequest2);
+                    return;
+                case 4:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token3 = _hidl_request.readInt32();
+                    getImsRegistrationState(token3);
+                    return;
+                case 5:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token4 = _hidl_request.readInt32();
+                    int callType = _hidl_request.readInt32();
+                    int presentation = _hidl_request.readInt32();
+                    int mode = _hidl_request.readInt32();
+                    answer(token4, callType, presentation, mode);
+                    return;
+                case 6:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token5 = _hidl_request.readInt32();
+                    HangupRequestInfo hangup = new HangupRequestInfo();
+                    hangup.readFromParcel(_hidl_request);
+                    hangup(token5, hangup);
+                    return;
+                case 7:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token6 = _hidl_request.readInt32();
+                    int state = _hidl_request.readInt32();
+                    requestRegistrationChange(token6, state);
+                    return;
+                case 8:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token7 = _hidl_request.readInt32();
+                    queryServiceStatus(token7);
+                    return;
+                case 9:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token8 = _hidl_request.readInt32();
+                    ServiceStatusInfo srvStatusInfo = new ServiceStatusInfo();
+                    srvStatusInfo.readFromParcel(_hidl_request);
+                    setServiceStatus(token8, srvStatusInfo);
+                    return;
+                case 10:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token9 = _hidl_request.readInt32();
+                    int callId = _hidl_request.readInt32();
+                    hold(token9, callId);
+                    return;
+                case 11:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token10 = _hidl_request.readInt32();
+                    int callId2 = _hidl_request.readInt32();
+                    resume(token10, callId2);
+                    return;
+                case 12:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token11 = _hidl_request.readInt32();
+                    ConfigInfo config = new ConfigInfo();
+                    config.readFromParcel(_hidl_request);
+                    setConfig(token11, config);
+                    return;
+                case 13:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token12 = _hidl_request.readInt32();
+                    ConfigInfo config2 = new ConfigInfo();
+                    config2.readFromParcel(_hidl_request);
+                    getConfig(token12, config2);
+                    return;
+                case 14:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token13 = _hidl_request.readInt32();
+                    conference(token13);
+                    return;
+                case 15:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token14 = _hidl_request.readInt32();
+                    getClip(token14);
+                    return;
+                case 16:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token15 = _hidl_request.readInt32();
+                    getClir(token15);
+                    return;
+                case 17:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token16 = _hidl_request.readInt32();
+                    ClirInfo clirInfo = new ClirInfo();
+                    clirInfo.readFromParcel(_hidl_request);
+                    setClir(token16, clirInfo);
+                    return;
+                case 18:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token17 = _hidl_request.readInt32();
+                    getColr(token17);
+                    return;
+                case 19:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token18 = _hidl_request.readInt32();
+                    ColrInfo colrInfo = new ColrInfo();
+                    colrInfo.readFromParcel(_hidl_request);
+                    setColr(token18, colrInfo);
+                    return;
+                case 20:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token19 = _hidl_request.readInt32();
+                    exitEmergencyCallbackMode(token19);
+                    return;
+                case 21:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token20 = _hidl_request.readInt32();
+                    DtmfInfo dtmfInfo = new DtmfInfo();
+                    dtmfInfo.readFromParcel(_hidl_request);
+                    sendDtmf(token20, dtmfInfo);
+                    return;
+                case 22:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token21 = _hidl_request.readInt32();
+                    DtmfInfo dtmfInfo2 = new DtmfInfo();
+                    dtmfInfo2.readFromParcel(_hidl_request);
+                    startDtmf(token21, dtmfInfo2);
+                    return;
+                case 23:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token22 = _hidl_request.readInt32();
+                    stopDtmf(token22);
+                    return;
+                case 24:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token23 = _hidl_request.readInt32();
+                    TtyInfo ttyInfo = new TtyInfo();
+                    ttyInfo.readFromParcel(_hidl_request);
+                    setUiTtyMode(token23, ttyInfo);
+                    return;
+                case 25:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token24 = _hidl_request.readInt32();
+                    CallModifyInfo callModifyInfo = new CallModifyInfo();
+                    callModifyInfo.readFromParcel(_hidl_request);
+                    modifyCallInitiate(token24, callModifyInfo);
+                    return;
+                case 26:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token25 = _hidl_request.readInt32();
+                    CallModifyInfo callModifyInfo2 = new CallModifyInfo();
+                    callModifyInfo2.readFromParcel(_hidl_request);
+                    modifyCallConfirm(token25, callModifyInfo2);
+                    return;
+                case 27:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token26 = _hidl_request.readInt32();
+                    CallForwardInfo callForwardInfo = new CallForwardInfo();
+                    callForwardInfo.readFromParcel(_hidl_request);
+                    queryCallForwardStatus(token26, callForwardInfo);
+                    return;
+                case 28:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token27 = _hidl_request.readInt32();
+                    CallForwardInfo callForwardInfo2 = new CallForwardInfo();
+                    callForwardInfo2.readFromParcel(_hidl_request);
+                    setCallForwardStatus(token27, callForwardInfo2);
+                    return;
+                case 29:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token28 = _hidl_request.readInt32();
+                    int serviceClass = _hidl_request.readInt32();
+                    getCallWaiting(token28, serviceClass);
+                    return;
+                case 30:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token29 = _hidl_request.readInt32();
+                    int serviceStatus = _hidl_request.readInt32();
+                    int serviceClass2 = _hidl_request.readInt32();
+                    setCallWaiting(token29, serviceStatus, serviceClass2);
+                    return;
+                case 31:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token30 = _hidl_request.readInt32();
+                    int status = _hidl_request.readInt32();
+                    setSuppServiceNotification(token30, status);
+                    return;
+                case 32:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token31 = _hidl_request.readInt32();
+                    ExplicitCallTransferInfo ectInfo = new ExplicitCallTransferInfo();
+                    ectInfo.readFromParcel(_hidl_request);
+                    explicitCallTransfer(token31, ectInfo);
+                    return;
+                case 33:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token32 = _hidl_request.readInt32();
+                    int operationType = _hidl_request.readInt32();
+                    int facilityType = _hidl_request.readInt32();
+                    CbNumListInfo cbNumListInfo = new CbNumListInfo();
+                    cbNumListInfo.readFromParcel(_hidl_request);
+                    suppServiceStatus(token32, operationType, facilityType, cbNumListInfo);
+                    return;
+                case 34:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token33 = _hidl_request.readInt32();
+                    getRtpStatistics(token33);
+                    return;
+                case 35:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token34 = _hidl_request.readInt32();
+                    getRtpErrorStatistics(token34);
+                    return;
+                case 36:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token35 = _hidl_request.readInt32();
+                    DeflectRequestInfo deflectRequestInfo = new DeflectRequestInfo();
+                    deflectRequestInfo.readFromParcel(_hidl_request);
+                    deflectCall(token35, deflectRequestInfo);
+                    return;
+                case 37:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token36 = _hidl_request.readInt32();
+                    double lat = _hidl_request.readDouble();
+                    double lon = _hidl_request.readDouble();
+                    AddressInfo addressInfo = new AddressInfo();
+                    addressInfo.readFromParcel(_hidl_request);
+                    sendGeolocationInfo(token36, lat, lon, addressInfo);
+                    return;
+                case 38:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token37 = _hidl_request.readInt32();
+                    getImsSubConfig(token37);
+                    return;
+                case 39:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token38 = _hidl_request.readInt32();
+                    String message = _hidl_request.readString();
+                    sendRttMessage(token38, message);
+                    return;
+                case 40:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_0.IImsRadio.kInterfaceName);
+                    int token39 = _hidl_request.readInt32();
+                    int callId3 = _hidl_request.readInt32();
+                    cancelModifyCall(token39, callId3);
+                    return;
+                case 41:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_1.IImsRadio.kInterfaceName);
+                    int token40 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_1.HangupRequestInfo hangup2 = new vendor.qti.hardware.radio.ims.V1_1.HangupRequestInfo();
+                    hangup2.readFromParcel(_hidl_request);
+                    hangup_1_1(token40, hangup2);
+                    return;
+                case 42:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    int token41 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_2.HangupRequestInfo hangup3 = new vendor.qti.hardware.radio.ims.V1_2.HangupRequestInfo();
+                    hangup3.readFromParcel(_hidl_request);
+                    hangup_1_2(token41, hangup3);
+                    return;
+                case 43:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    int token42 = _hidl_request.readInt32();
+                    ImsSmsMessage imsSms = new ImsSmsMessage();
+                    imsSms.readFromParcel(_hidl_request);
+                    sendImsSms(token42, imsSms);
+                    return;
+                case 44:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    int token43 = _hidl_request.readInt32();
+                    int messageRef = _hidl_request.readInt32();
+                    int smsResult = _hidl_request.readInt32();
+                    acknowledgeSms(token43, messageRef, smsResult);
+                    return;
+                case 45:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    int token44 = _hidl_request.readInt32();
+                    int messageRef2 = _hidl_request.readInt32();
+                    int smsReport = _hidl_request.readInt32();
+                    acknowledgeSmsReport(token44, messageRef2, smsReport);
+                    return;
+                case 46:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    String _hidl_out_format = getSmsFormat();
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.writeString(_hidl_out_format);
+                    _hidl_reply.send();
+                    return;
+                case 47:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_2.IImsRadio.kInterfaceName);
+                    int token45 = _hidl_request.readInt32();
+                    double lat2 = _hidl_request.readDouble();
+                    double lon2 = _hidl_request.readDouble();
+                    vendor.qti.hardware.radio.ims.V1_2.AddressInfo addressInfo2 = new vendor.qti.hardware.radio.ims.V1_2.AddressInfo();
+                    addressInfo2.readFromParcel(_hidl_request);
+                    sendGeolocationInfo_1_2(token45, lat2, lon2, addressInfo2);
+                    return;
+                case 48:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_3.IImsRadio.kInterfaceName);
+                    int token46 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_3.HangupRequestInfo hangup4 = new vendor.qti.hardware.radio.ims.V1_3.HangupRequestInfo();
+                    hangup4.readFromParcel(_hidl_request);
+                    hangup_1_3(token46, hangup4);
+                    return;
+                case 49:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_3.IImsRadio.kInterfaceName);
+                    int token47 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_3.ColrInfo colrInfo2 = new vendor.qti.hardware.radio.ims.V1_3.ColrInfo();
+                    colrInfo2.readFromParcel(_hidl_request);
+                    setColr_1_3(token47, colrInfo2);
+                    return;
+                case 50:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+                    int token48 = _hidl_request.readInt32();
+                    ArrayList<MultiIdentityLineInfoHal> info = MultiIdentityLineInfoHal.readVectorFromParcel(_hidl_request);
+                    registerMultiIdentityLines(token48, info);
+                    return;
+                case 51:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+                    int token49 = _hidl_request.readInt32();
+                    String msisdn = _hidl_request.readString();
+                    queryVirtualLineInfo(token49, msisdn);
+                    return;
+                case 52:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+                    int token50 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest3 = new vendor.qti.hardware.radio.ims.V1_4.DialRequest();
+                    dialRequest3.readFromParcel(_hidl_request);
+                    dial_1_4(token50, dialRequest3);
+                    return;
+                case 53:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_4.IImsRadio.kInterfaceName);
+                    int token51 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest4 = new vendor.qti.hardware.radio.ims.V1_4.DialRequest();
+                    dialRequest4.readFromParcel(_hidl_request);
+                    addParticipant_1_4(token51, dialRequest4);
+                    return;
+                case 54:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+                    int token52 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_5.ConfigInfo config3 = new vendor.qti.hardware.radio.ims.V1_5.ConfigInfo();
+                    config3.readFromParcel(_hidl_request);
+                    setConfig_1_5(token52, config3);
+                    return;
+                case 55:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+                    int token53 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_4.DialRequest dialRequest5 = new vendor.qti.hardware.radio.ims.V1_4.DialRequest();
+                    dialRequest5.readFromParcel(_hidl_request);
+                    int categories = _hidl_request.readInt32();
+                    ArrayList<String> urns = _hidl_request.readStringVector();
+                    int route = _hidl_request.readInt32();
+                    boolean hasKnownUserIntentEmergency = _hidl_request.readBool();
+                    boolean isTesting = _hidl_request.readBool();
+                    emergencyDial(token53, dialRequest5, categories, urns, route, hasKnownUserIntentEmergency, isTesting);
+                    return;
+                case 56:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_5.IImsRadio.kInterfaceName);
+                    int token54 = _hidl_request.readInt32();
+                    int messageRef3 = _hidl_request.readInt32();
+                    int smsResult2 = _hidl_request.readInt32();
+                    acknowledgeSms_1_5(token54, messageRef3, smsResult2);
+                    return;
+                case 57:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token55 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_6.ConfigInfo config4 = new vendor.qti.hardware.radio.ims.V1_6.ConfigInfo();
+                    config4.readFromParcel(_hidl_request);
+                    setConfig_1_6(token55, config4);
+                    return;
+                case 58:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token56 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest6 = new vendor.qti.hardware.radio.ims.V1_6.DialRequest();
+                    dialRequest6.readFromParcel(_hidl_request);
+                    dial_1_6(token56, dialRequest6);
+                    return;
+                case 59:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token57 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest7 = new vendor.qti.hardware.radio.ims.V1_6.DialRequest();
+                    dialRequest7.readFromParcel(_hidl_request);
+                    int categories2 = _hidl_request.readInt32();
+                    ArrayList<String> urns2 = _hidl_request.readStringVector();
+                    int route2 = _hidl_request.readInt32();
+                    boolean hasKnownUserIntentEmergency2 = _hidl_request.readBool();
+                    boolean isTesting2 = _hidl_request.readBool();
+                    emergencyDial_1_6(token57, dialRequest7, categories2, urns2, route2, hasKnownUserIntentEmergency2, isTesting2);
+                    return;
+                case 60:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token58 = _hidl_request.readInt32();
+                    ArrayList<vendor.qti.hardware.radio.ims.V1_6.ServiceStatusInfo> srvStatusInfoList = vendor.qti.hardware.radio.ims.V1_6.ServiceStatusInfo.readVectorFromParcel(_hidl_request);
+                    setServiceStatus_1_6(token58, srvStatusInfoList);
+                    return;
+                case 61:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token59 = _hidl_request.readInt32();
+                    int operationType2 = _hidl_request.readInt32();
+                    int facilityType2 = _hidl_request.readInt32();
+                    CbNumListInfo cbNumListInfo2 = new CbNumListInfo();
+                    cbNumListInfo2.readFromParcel(_hidl_request);
+                    String password = _hidl_request.readString();
+                    suppServiceStatus_1_6(token59, operationType2, facilityType2, cbNumListInfo2, password);
+                    return;
+                case 62:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token60 = _hidl_request.readInt32();
+                    String ussd = _hidl_request.readString();
+                    sendUssd(token60, ussd);
+                    return;
+                case 63:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token61 = _hidl_request.readInt32();
+                    cancelPendingUssd(token61);
+                    return;
+                case 64:
+                    _hidl_request.enforceInterface(vendor.qti.hardware.radio.ims.V1_6.IImsRadio.kInterfaceName);
+                    int token62 = _hidl_request.readInt32();
+                    vendor.qti.hardware.radio.ims.V1_6.DialRequest dialRequest8 = new vendor.qti.hardware.radio.ims.V1_6.DialRequest();
+                    dialRequest8.readFromParcel(_hidl_request);
+                    CallComposerInfo callComposerInfo = new CallComposerInfo();
+                    callComposerInfo.readFromParcel(_hidl_request);
+                    callComposerDial(token62, dialRequest8, callComposerInfo);
+                    return;
+                case 65:
+                    _hidl_request.enforceInterface(IImsRadio.kInterfaceName);
+                    int token63 = _hidl_request.readInt32();
+                    String requestCode = _hidl_request.readString();
+                    sendSipDtmf(token63, requestCode);
+                    return;
+                case 256067662:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    ArrayList<String> _hidl_out_descriptors = interfaceChain();
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.writeStringVector(_hidl_out_descriptors);
+                    _hidl_reply.send();
+                    return;
+                case 256131655:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    NativeHandle fd = _hidl_request.readNativeHandle();
+                    ArrayList<String> options = _hidl_request.readStringVector();
+                    debug(fd, options);
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.send();
+                    return;
+                case 256136003:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    String _hidl_out_descriptor = interfaceDescriptor();
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.writeString(_hidl_out_descriptor);
+                    _hidl_reply.send();
+                    return;
+                case 256398152:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    ArrayList<byte[]> _hidl_out_hashchain = getHashChain();
+                    _hidl_reply.writeStatus(0);
+                    HwBlob _hidl_blob = new HwBlob(16);
+                    int _hidl_vec_size = _hidl_out_hashchain.size();
+                    _hidl_blob.putInt32(8L, _hidl_vec_size);
+                    _hidl_blob.putBool(12L, false);
+                    HwBlob childBlob = new HwBlob(_hidl_vec_size * 32);
+                    for (int _hidl_index_0 = 0; _hidl_index_0 < _hidl_vec_size; _hidl_index_0++) {
+                        long _hidl_array_offset_1 = _hidl_index_0 * 32;
+                        byte[] _hidl_array_item_1 = _hidl_out_hashchain.get(_hidl_index_0);
+                        if (_hidl_array_item_1 == null || _hidl_array_item_1.length != 32) {
+                            throw new IllegalArgumentException("Array element is not of the expected length");
+                        }
+                        childBlob.putInt8Array(_hidl_array_offset_1, _hidl_array_item_1);
+                    }
+                    _hidl_blob.putBlob(0L, childBlob);
+                    _hidl_reply.writeBuffer(_hidl_blob);
+                    _hidl_reply.send();
+                    return;
+                case 256462420:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    setHALInstrumentation();
+                    return;
+                case 256660548:
+                default:
+                    return;
+                case 256921159:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    ping();
+                    _hidl_reply.writeStatus(0);
+                    _hidl_reply.send();
+                    return;
+                case 257049926:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    DebugInfo _hidl_out_info = getDebugInfo();
+                    _hidl_reply.writeStatus(0);
+                    _hidl_out_info.writeToParcel(_hidl_reply);
+                    _hidl_reply.send();
+                    return;
+                case 257120595:
+                    _hidl_request.enforceInterface(IBase.kInterfaceName);
+                    notifySyspropsChanged();
+                    return;
+            }
+        }
+    }
+}
