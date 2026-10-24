@@ -19,6 +19,8 @@ android_app {
     certificate: "platform",
     privileged: true,
     system_ext_specific: true,
+    // 狀態列圖示需要 STATUS_BAR，須同時列入 privapp allowlist（見下方 prebuilt_etc）
+    required: ["privapp_whitelist_org.codeaurora.ims"],
     dex_preopt: { enabled: false },
     optimize: { enabled: false },
     uses_libs: [
@@ -32,4 +34,12 @@ android_app {
         "qti-telephony-utils",
         "ims-ext-common",
     ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_org.codeaurora.ims",
+    system_ext_specific: true,
+    sub_dir: "permissions",
+    src: "privapp_whitelist_org.codeaurora.ims.xml",
+    filename_from_src: true,
 }

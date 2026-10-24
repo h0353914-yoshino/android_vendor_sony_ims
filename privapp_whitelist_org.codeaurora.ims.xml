@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 狀態列 VoLTE / VoWiFi 圖示（StatusBarManager.setIcon）需要 STATUS_BAR（signature|privileged）。
+     Android 15 會檢查 priv-app 是否列在 allowlist 內，未列入會讓 system_server 啟動時崩潰。 -->
+<permissions>
+    <privapp-permissions package="org.codeaurora.ims">
+        <permission name="android.permission.STATUS_BAR"/>
+    </privapp-permissions>
+</permissions>
