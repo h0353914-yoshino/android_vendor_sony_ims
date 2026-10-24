@@ -23,7 +23,8 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
     private Context mContext;
     private int mPhoneId;
     private ImsServiceSub mServiceSub;
-    private boolean mShowHDIcon = true;
+    // 與原版不同：預設 false。shallShowHDIcon 已改為預設 true，若此處也是 true，第一次顯示會被提前略過
+    private boolean mShowHDIcon = false;
     private boolean mShowVOLTEIcon = false;
     private boolean mShowVoWifiIcon = false;
 
@@ -86,7 +87,9 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
     }
 
     private boolean shallShowHDIcon() {
-        boolean showHDIcon = false;
+        // 與原版不同：電信商未設定時預設顯示（原版預設 false），任何電信開啟 VoLTE 都會有圖示
+        boolean showHDIcon = true;
+        this.mShowVOLTEIcon = true;
         SubscriptionManager subManager = (SubscriptionManager) this.mContext.getSystemService("telephony_subscription_service");
         if (subManager == null) {
             Log.i(LOG_TAG, "shallShowHDIcon SubscriptionManager is null");
@@ -115,8 +118,8 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
             b = mgr.getConfigForSubId(subId);
         }
         if (b != null) {
-            showHDIcon = b.getBoolean(SHOW_HD_ICON, false);
-            this.mShowVOLTEIcon = b.getBoolean(SHOW_VOLTE_ICON, false);
+            showHDIcon = b.getBoolean(SHOW_HD_ICON, true);
+            this.mShowVOLTEIcon = b.getBoolean(SHOW_VOLTE_ICON, true);
         }
         Log.i(LOG_TAG, "shallShowHDIcon config showHDIcon : " + showHDIcon + " phoneId : " + this.mPhoneId);
         return showHDIcon;
