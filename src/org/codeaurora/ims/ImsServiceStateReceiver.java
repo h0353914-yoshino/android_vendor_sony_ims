@@ -1,14 +1,9 @@
 package org.codeaurora.ims;
 
-import android.app.ActivityManager;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
+import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.telephony.CarrierConfigManager;
@@ -18,11 +13,10 @@ import com.qualcomm.ims.utils.Log;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ImsServiceStateReceiver extends BroadcastReceiver {
-    private static String CHANNEL_ID = "ims_services_channel_";
-    private static String CHANNEL_ID_VOWIFI = "ims_services_channel_vowifi_";
-    private static final int IMS_HD_ICON = 1000;
-    private static final int IMS_VOWIFI_ICON = 1001;
     private static final String LOG_TAG = "ImsServiceStateReceiver";
+    // 狀態列槽位名稱後接 phoneId；框架 config_statusBarIcons（device overlay）已登記，會排在蜂窩 / Wi-Fi 圖示旁
+    private static final String SLOT_VOLTE = "volte";
+    private static final String SLOT_VOWIFI = "vowifi";
     private static final String SHOW_HD_ICON = "config_update_service_status";
     private static final String SHOW_VOLTE_ICON = "config_update_volte_icon";
     private static final String SHOW_VOWIFI_ICON = "config_update_vowifi_icon";
@@ -31,7 +25,6 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
     private ImsServiceSub mServiceSub;
     private boolean mShowHDIcon = true;
     private boolean mShowVOLTEIcon = false;
-    private NotificationManager mNotificationMgr = null;
     private boolean mShowVoWifiIcon = false;
 
     public ImsServiceStateReceiver(ImsServiceSub serviceSub, Context context, int phoneId) {
@@ -58,54 +51,38 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
         showHDIcon(false);
     }
 
-    public static void overrideNotificationAppName(Context context, Notification.Builder n) {
-        Bundle extras = new Bundle();
-        extras.putString("android.substName", context.getResources().getString(R.string.hd_icon_header_app_name));
-        n.addExtras(extras);
-    }
-
     private void showHDIcon(boolean showHDIcon) {
         if (this.mShowHDIcon == showHDIcon) {
             return;
         }
-        if (this.mNotificationMgr == null) {
-            try {
-                Context context = this.mContext;
-                this.mNotificationMgr = (NotificationManager) context.createPackageContextAsUser(context.getPackageName(), 0, UserHandle.of(ActivityManager.getCurrentUser())).getSystemService("notification");
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.w(LOG_TAG, "showHDIcon Package name not found: " + e.getMessage());
-            }
-        }
-        NotificationManager notificationManager = this.mNotificationMgr;
-        if (notificationManager == null) {
-            Log.e(LOG_TAG, "showHDIcon unable to show HD icon due to NotificationManager is null");
-            return;
-        }
         this.mShowHDIcon = showHDIcon;
-        if (showHDIcon) {
-            NotificationChannel channel = notificationManager.getNotificationChannel(CHANNEL_ID + this.mPhoneId);
-            if (channel == null) {
-                CharSequence name = this.mContext.getResources().getString(R.string.ims_channel_name);
-                channel = new NotificationChannel(CHANNEL_ID + this.mPhoneId, name, 2);
-                this.mNotificationMgr.createNotificationChannel(channel);
-            }
-            Notification.Builder builder = new Notification.Builder(this.mContext);
-            builder.setChannelId(channel.getId());
-            if (this.mShowVOLTEIcon) {
-                builder.setContentTitle(this.mContext.getResources().getString(R.string.device_is_volte_capable, Integer.valueOf(this.mPhoneId + 1)));
-                builder.setSmallIcon(R.drawable.volte_icon);
-            } else {
-                builder.setContentTitle(this.mContext.getResources().getString(R.string.device_is_hd_capable, Integer.valueOf(this.mPhoneId + 1)));
-                builder.setSmallIcon(R.drawable.ims_state);
-            }
-            builder.setShowWhen(false);
-            overrideNotificationAppName(this.mContext, builder);
-            Notification notification = builder.build();
-            notification.flags |= 32;
-            this.mNotificationMgr.notify(this.mPhoneId + IMS_HD_ICON, notification);
+        updateStatusBarIcons();
+    }
+
+    // VoWiFi 與 VoLTE 只顯示一個：VoWiFi 啟用時只顯示 VoWiFi 圖示，否則才顯示 VoLTE（或 HD）圖示
+    private void updateStatusBarIcons() {
+        StatusBarManager statusBarManager = (StatusBarManager) this.mContext.getSystemService("statusbar");
+        if (statusBarManager == null) {
+            Log.e(LOG_TAG, "updateStatusBarIcons unable to update icons due to StatusBarManager is null");
             return;
         }
-        notificationManager.cancel(this.mPhoneId + IMS_HD_ICON);
+        String volteSlot = SLOT_VOLTE + this.mPhoneId;
+        String vowifiSlot = SLOT_VOWIFI + this.mPhoneId;
+        if (this.mShowVoWifiIcon) {
+            statusBarManager.removeIcon(volteSlot);
+            statusBarManager.setIcon(vowifiSlot, R.drawable.ic_qs_wifi_calling_on, 0, this.mContext.getResources().getString(R.string.wifi_calling_on));
+            return;
+        }
+        statusBarManager.removeIcon(vowifiSlot);
+        if (!this.mShowHDIcon) {
+            statusBarManager.removeIcon(volteSlot);
+            return;
+        }
+        if (this.mShowVOLTEIcon) {
+            statusBarManager.setIcon(volteSlot, R.drawable.volte_icon, 0, this.mContext.getResources().getString(R.string.device_is_volte_capable, Integer.valueOf(this.mPhoneId + 1)));
+        } else {
+            statusBarManager.setIcon(volteSlot, R.drawable.ims_state, 0, this.mContext.getResources().getString(R.string.device_is_hd_capable, Integer.valueOf(this.mPhoneId + 1)));
+        }
     }
 
     private boolean shallShowHDIcon() {
@@ -208,12 +185,8 @@ public class ImsServiceStateReceiver extends BroadcastReceiver {
             voWifiIntent.putExtra("showVOWIFIIcon", false);
         }
         this.mContext.sendBroadcastAsUser(voWifiIntent, UserHandle.ALL);
-        if (this.mNotificationMgr == null) {
-            this.mNotificationMgr = (NotificationManager) this.mContext.getSystemService("notification");
-        }
-        if (!this.mShowVoWifiIcon) {
-            this.mNotificationMgr.cancelAsUser(null, this.mPhoneId + IMS_VOWIFI_ICON, UserHandle.ALL);
-        }
+        // 與原版不同：原版只送 arima 廣播，AOSP/Lineage 沒有接收端，所以這裡改用狀態列圖示顯示
+        updateStatusBarIcons();
     }
 
     private boolean shallShowVoWifiIcon() {
